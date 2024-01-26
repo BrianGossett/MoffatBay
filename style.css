@@ -2,8 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    position: relative;
 }
 
 header {
@@ -11,6 +9,7 @@ header {
     color: white;
     padding: 1em;
     text-align: center;
+    position: relative;
 }
 
 footer.site-footer {
@@ -31,4 +30,43 @@ footer.site-footer {
 
 .footer-links a:hover {
     text-decoration: underline;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+.menu-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 4em;
+    right: 0;
+    background-color: #333;
+    padding: 1em;
+    width: 100%;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em;
+    display: block;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
+.nav-links.show {
+    display: flex;
 }
