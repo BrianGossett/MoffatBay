@@ -7,24 +7,34 @@
     <title>Moffat Bay Lodge</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Moffat Bay Lodge</h1>
-    </header>
-    
-    <!-- Your registration page content goes here -->
+    <div id="headerContainer"></div>
 
-    <footer class="site-footer">
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="aboutUs.html">About Us</a>
-            <a href="contactUS.html">Contact Us</a>
-            <a href="attractions.html">Attractions</a>
-            <a href="registration.html">Registration</a>
-            <a href="login.html">Login</a>
-            <a href="lodgeReservation.html">Lodge Reservation</a>
-            <a href="reservationSummary.html">Reservation Summary</a>
-            <a href="reservationLookUp.html">Reservation Lookup</a>
-        </div>
-    </footer>
+    <div class="registration-container">
+        <h2>Registration</h2>
+        <form id="registrationForm" >
+            <label for="email">Email Address:</label>
+            <input type="email" name="email" required>
+
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" required>
+
+            <label for="telephone">Telephone:</label>
+            <input type="tel" name="telephone" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="footerContainer"></div>
+    <script src="script.js"></script>
 </body>
 </html>
