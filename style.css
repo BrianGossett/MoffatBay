@@ -70,3 +70,91 @@ h1 {
 .nav-links.show {
     display: flex;
 }
+
+.pageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    margin: 0;
+    background-color: #ffffff;/* Set a light gray background color */
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+#loginForm { /* Set a white background color */
+    background-color: #f0f0f0; 
+    border-radius: 10px; /* Add rounded corners */
+    padding: 8em 15em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+
+}
+
+#loginForm label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: end;
+}
+
+#loginForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#loginForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Set a blue color for the button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+#forgotPasswordForm {
+    background-color: #f0f0f0; 
+    border-radius: 10px; /* Add rounded corners */
+    padding: 8em 15em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+#forgotPasswordForm label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#forgotPasswordForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#forgotPasswordForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Set a blue color for the button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#forgotPasswordForm button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
