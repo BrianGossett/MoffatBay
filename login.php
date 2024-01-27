@@ -4,30 +4,30 @@ include 'db_connection.php';
 
 // Handle login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
+    $emailAddress = $_POST['username'];  // Assuming email is used as the username
     $password = $_POST['password'];
     $remember = isset($_POST['remember']);
 
-    $query = "SELECT id, username, password FROM users WHERE username = ?";
+    $query = "SELECT CustomerID, EmailAddress, Password FROM customer WHERE EmailAddress = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $username);
+    $stmt->bind_param("s", $emailAddress);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
-        if (password_verify($password, $row['password'])) {
+        if (password_verify($password, $row['Password'])) {
             // Set session variables
             session_start();
-            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['customer_id'] = $row['CustomerID'];
 
             // Generate a unique token for remember me
             if ($remember) {
                 $rememberToken = bin2hex(random_bytes(32));
-                $updateQuery = "UPDATE users SET remember_token = ? WHERE id = ?";
+                $updateQuery = "UPDATE customer SET remember_token = ? WHERE CustomerID = ?";
                 $updateStmt = $conn->prepare($updateQuery);
-                $updateStmt->bind_param("si", $rememberToken, $row['id']);
+                $updateStmt->bind_param("si", $rememberToken, $row['CustomerID']);
                 $updateStmt->execute();
 
                 // Set a cookie with the remember token
