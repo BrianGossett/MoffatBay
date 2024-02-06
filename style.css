@@ -5,7 +5,9 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-image: url('landingpagebackground.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
     color: white;
     padding: 1em;
     text-align: center;
