@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
+
             if (data.success) {
                 // Redirect to the home page or any other authorized page
                 window.location.href = "index.html";
@@ -79,3 +80,39 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 });
+
+function checkAndDisplayCustomerId() {
+    // Make an AJAX request to check if the user is logged in
+    fetch("check_login_status.php")
+        .then(response => response.text())
+        .then(data => {
+            // Execute the script containing customer_id
+            eval(data);
+            
+            // Use the customer_id JavaScript variable
+            if (customer_id !== null) {
+                // The user is logged in, you can display or use the customer_id
+                console.log("Customer ID:", customer_id);
+            } else {
+                // The user is not logged in
+                console.log("Not logged in");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+}
+
+function loginPageRedirect() {
+    // Make an AJAX request to check if the user is logged in
+    fetch("check_login_status.php")
+        .then(response => response.text())
+        .then(data => {
+            // Execute the script containing customer_id
+            eval(data);
+            
+            // Use the customer_id JavaScript variable
+            if (customer_id !== null) {
+                window.location.href = "lodgeReservation.html";
+            }
+        })
+        .catch(error => console.error("Error:", error));
+}
