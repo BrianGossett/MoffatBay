@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const registrationForm = document.getElementById("registrationForm");
 
     if(registrationForm)
-{    registrationForm.addEventListener("submit", function (e) {
+    {    
+        registrationForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const formData = new FormData(registrationForm);
@@ -68,7 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('header.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById("headerContainer").innerHTML = data;
+            const headerContainer = document.getElementById("headerContainer");
+            if (headerContainer) {
+                headerContainer.innerHTML = data;
+            }
 
             // Now, menuIcon and navLinks are part of the DOM
             const menuIcon = document.getElementById("menuIcon");
