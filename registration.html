@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="regStyle.css">
     <link rel="stylesheet" href="style.css">
-    <title>Moffat Bay Lodge</title>
+    <title>Moffat Bay/Registration</title>
 </head>
 <body>
+
     <div id="headerContainer"></div>
 
     <div class="registration-container">
-        <h2>Registration</h2>
+        
         <form id="registrationForm" >
+            <h2>Registration</h2>
+            <div class="label-input-container">
             <label for="email">Email Address:</label>
             <input type="email" name="email" required>
+        </div>
 
+        <div class="label-input-container">
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" required>
+        </div>
 
+        <div class="label-input-container">
             <label for="lastName">Last Name:</label>
             <input type="text" name="lastName" required>
+        </div>
 
+        <div class="label-input-container">
             <label for="telephone">Telephone:</label>
             <input type="tel" name="telephone" required>
+        </div>
 
+        <div class="label-input-container">
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required>
+        </div>
 
+        <div class="label-input-container">
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" name="confirmPassword" id="confirmPassword" required>
-
-            <button type="submit">Register</button>
+        </div>
+            <button type="submit">Submit</button>
         </form>
     </div>
 
