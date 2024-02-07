@@ -100,3 +100,19 @@ function checkAndDisplayCustomerId() {
         })
         .catch(error => console.error("Error:", error));
 }
+
+function loginPageRedirect() {
+    // Make an AJAX request to check if the user is logged in
+    fetch("check_login_status.php")
+        .then(response => response.text())
+        .then(data => {
+            // Execute the script containing customer_id
+            eval(data);
+            
+            // Use the customer_id JavaScript variable
+            if (customer_id !== null) {
+                window.location.href = "lodgeReservation.html";
+            }
+        })
+        .catch(error => console.error("Error:", error));
+}
