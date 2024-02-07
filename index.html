@@ -10,7 +10,7 @@
         <header>
             <div id="logo">
                 <h1>Moffay Bay Lodge</h1>
-                <img src="palm_tree_icon.png" alt="Palm Tree Logo"
+                <img src="palm_tree_icon.png" alt="Palm Tree Logo"/>
             </div>
             <div id="user-navigation">
                 <a href="login.html">
@@ -35,7 +35,9 @@
     <main id="index-container">
         <h1>Welcome to Moffat Bay Lodge. Book your dream vacation now.</h1>
         <div id="search-form">
-            <form>
+
+            <form onsubmit="return handleLanding()"> 
+
                 <input type="date" id="check-in" name="check-in" required placeholder="Check In Date">
 
                 <input type="date" id="check-out" name="check-out" required placeholder="Check Out Date">

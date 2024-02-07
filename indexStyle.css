@@ -61,6 +61,8 @@ header {
 
 #user-navigation img{
     margin-top: 5px;
+    max-height: 100px;
+    margin-right: 125px;
 }
 
 nav ul {
