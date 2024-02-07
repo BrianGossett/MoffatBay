@@ -1,0 +1,228 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body.landing-page {
+    margin: 0;
+    padding: 0;
+    background-image: url('landingpagebackground.jpg');
+    background-size:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+body.landing-page .menu-icon {
+    display: block;
+}
+
+header {
+    color: #3F3E40;
+    padding: 1em;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    font-size: 20px;
+}
+
+#logo {
+    display:flex;
+    align-items: center;
+
+}
+
+#logo h1 {
+    margin: 0;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+#logo img {
+    max-height: 100px;
+    margin-right: 5px;
+}
+
+#user-navigation {
+    display: flex;
+    align-items: center;
+}
+
+#user-navigation a {
+    display: flex;
+    align-items: center;
+    margin-left: 40em;
+    margin-right: 10px;
+}
+
+#user-navigation img{
+    margin-top: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+footer.site-footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+h1 {
+    margin: 0;
+    text-align: center; 
+}
+
+.menu-icon {
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 4em;
+    right: 0;
+    background-color: #333;
+    padding: 1em;
+    width: 100%;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em;
+    display: block;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+#index-container {
+    text-align: center;
+    background-color: rgba(52, 63, 65, 0.6);
+    margin-top: 10%;
+    padding: 90px;
+    margin-bottom: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#index-container h1 {
+    display: inline-block;
+    color: white;
+    justify-content: center;
+    font-size: medium;
+
+}
+#search-form {
+    text-align: center;
+    margin-top: 35px;
+    justify-content: center;
+}
+
+#search-form form {
+    display:flex;
+    background-color: rgba(52, 63, 75, 1);
+    padding: 5px 70px;
+    border-radius: 10px;
+    color: white;
+    justify-content: space-around;
+}
+
+#search-form label {
+    display: block;
+    margin-bottom: 10px;
+    width: 30%;
+    margin-right: 0%;
+}
+
+#search-form input {
+    width: 200%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    margin-right: 5%;
+    margin-top: 10px;
+}
+
+#search-form button {
+    background-color: black;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.date-input {
+    color: white;
+  }
+  
+.date-input::placeholder {
+    color: white;
+  }
+
+#guests::placeholder {
+    color: white;
+}
+
+#check-in::placeholder {
+    color: white;
+}
+
+#check-out::placeholder {
+    color: white;
+}
