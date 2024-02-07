@@ -84,7 +84,7 @@ footer.site-footer {
     color: white;
     padding: 1em;
     text-align: center;
-    position: bottom;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
