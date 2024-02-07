@@ -99,8 +99,9 @@ h1 {
 #registrationForm { 
     background-color: #f0f0f0; 
     border-radius: 10px; 
-    padding: 2em;
+    padding: 5em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
 }
 
 .label-input-container {
