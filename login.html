@@ -8,27 +8,39 @@
 </head>
 <body>
     <div id="headerContainer"></div>
-    
-    <!-- Your login page content goes here -->
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
+    <div  class="pageContainer">
+        <!-- Your login page content goes here -->
+        <form id="loginForm">
+            <div class="row">
+                <h2>Login Here</h2>
+            </div>
+            <div class="row">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required>
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
+            <div class="row">
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+            </div>
+            
+            <div class="row">
+                <button type="submit">Login</button>
+            </div>
 
-        <label for="remember">Remember Me:</label>
-        <input type="checkbox" name="remember">
-
-        <button type="submit">Login</button>
-    </form>
-    
+            <div class="row">
+                <a href="forgotPassword.html">forgot password</a>
+                <a href="registration.html">register</a>
+            </div>
+            
+        </form>
+    </div>
 
 
     <div id="footerContainer"></div>
     <script src="script.js"></script>    
     <script>
-       checkAndDisplayCustomerId()
+       loginPageRedirect()
     </script>
 </body>
 </html>

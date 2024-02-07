@@ -81,6 +81,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
+
+function handleLanding() {
+    // Your existing landing page logic here...
+
+    // Assuming landing is successful, redirect to lodgeReservation.html with query parameters
+    const checkInDate = document.getElementById("check-in").value;
+    const checkOutDate = document.getElementById("check-out").value;
+    const numberOfGuests = document.getElementById("guests").value;
+
+    // Redirect to lodgeReservation.html with query parameters
+    window.location.href = `lodgeReservation.html?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&numberOfGuests=${numberOfGuests}`;
+
+    // Prevent the form from submitting
+    return false;
+}
 function checkAndDisplayCustomerId() {
     // Make an AJAX request to check if the user is logged in
     fetch("check_login_status.php")
@@ -99,4 +114,21 @@ function checkAndDisplayCustomerId() {
             }
         })
         .catch(error => console.error("Error:", error));
+}
+
+function loginPageRedirect() {
+    // Make an AJAX request to check if the user is logged in
+    fetch("check_login_status.php")
+        .then(response => response.text())
+        .then(data => {
+            // Execute the script containing customer_id
+            eval(data);
+            
+            // Use the customer_id JavaScript variable
+            if (customer_id !== null) {
+                window.location.href = "lodgeReservation.html";
+            }
+        })
+        .catch(error => console.error("Error:", error));
+
 }
