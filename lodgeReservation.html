@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Moffat Bay Lodge</title>
+    <header>
+        <link rel="stylesheet" href="style.css">
+            <div id="headerContainer"></div>
+
+        <h1><a href="index.html">Moffat Bay Lodge</a></h1>
+        <img src="palm_tree_icon.png" alt="PalmIcon" width="40" height="40" />
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
+        <a href="login.html" class="account-icon">
+            <img src="no_account_png.png" alt="Account Login Icon">
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="contactUS.html">Contact Us</a>
+            <a href="attractions.html">Attractions</a>
+            <a href="registration.html">Registration</a>
+            <a href="login.html">Login</a>
+            <a href="lodgeReservation.html">Lodge Reservation</a>
+            <a href="reservationSummary.html">Reservation Summary</a>
+            <a href="reservationLookUp.html">Reservation Lookup</a>
+        </nav>
+    </header>
 </head>
 <body>
+    <link rel="stylesheet" href="lodgeres.css">
     <div id="headerContainer"></div>
-    
-    <!-- Your landing page content goes here -->
 
+
+    <div id =".res-container ">
+    <form id="resForm">
+        <h1>Book Your Reservation</h1>
+        <label for="check_in_date">Check-in Date:</label>
+        <input type="date" name="check_in_date" required>
+    
+        <label for="check_out_date">Check-out Date:</label>
+        <input type="date" name="check_out_date" required>
+
+        <label for="room_size">Room Size:</label>
+        <select name="room_size" required>
+            <option value="double_full_beds">Double Full Beds</option>
+            <option value="queen">Queen</option>
+            <option value="double_queen_beds">Double Queen Beds</option>
+            <option value="king">King</option>
+        </select>
+    
+        <label for="num_guests">Number of Guests:</label>
+        <input type="number" name="num_guests" min="1" max="20" required>
+    
+        <input type="submit" value="Book Now">
+
+    </form>
+    </div>
     <div id="footerContainer"></div>
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,63 @@
+header {
+  background-image: url('landingpagebackground.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 1em;
+  text-align: center;
+  font-family: 'Berkshire Swash', cursive;
+  position: relative;
+  padding: 2em;
+  padding-left: 100px;
+  display: flex;
+  align-items: center;
+}
+
+
+.res-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin: 50px 0;
+  background-color: #ffffff;
+}
+#resForm {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+input[type="date"] {
+  appearance: none;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
