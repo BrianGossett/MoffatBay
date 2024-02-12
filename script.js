@@ -136,3 +136,38 @@ function loginPageRedirect() {
         .catch(error => console.error("Error:", error));
 
 }
+
+
+// Get reservation details and redirect to summary page
+function submitReservation() {
+    var RoomID = document.getElementById("RoomID").value;
+    var NumberofGuests = document.getElementById("NumberofGuests").value;
+    var CheckInDate = document.getElementById("CheckInDate").value;
+    var CheckOutDate = document.getElementById("CheckOutDate").value;
+
+    // Construct the URL parameters
+    var formData = "RoomID=" + encodeURIComponent(RoomID) +
+                   "&NumberofGuests=" + encodeURIComponent(NumberofGuests) +
+                   "&CheckInDate=" + encodeURIComponent(CheckInDate) +
+                   "&CheckOutDate=" + encodeURIComponent(CheckOutDate);
+
+    // Redirect to reservation summary page 
+    window.location.href = "reservationSummary.html?" + formData;
+}
+
+function reservationNotLoggedInRedirect() {
+    // Make an AJAX request to check if the user is logged in
+    fetch("check_login_status.php")
+        .then(response => response.text())
+        .then(data => {
+            // Execute the script containing customer_id
+            eval(data);
+            
+            // Use the customer_id JavaScript variable
+            if (customer_id == null) {
+                window.location.href = "login.html";
+            }
+        })
+        .catch(error => console.error("Error:", error));
+
+}
