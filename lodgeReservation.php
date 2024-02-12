@@ -33,22 +33,3 @@ if ($result) {
 $conn->close();
 ?>
 
-<script>
-// Get reservation details and redirect to summary page
-function submitReservation() {
-    var RoomID = document.getElementById("RoomID").value;
-    var NumberofGuests = document.getElementById("NumberofGuests").value;
-    var CheckInDate = document.getElementById("CheckInDate").value;
-    var CheckOutDate = document.getElementById("CheckOutDate").value;
-
-    // Construct the URL parameters
-    var formData = "RoomID=" + encodeURIComponent(RoomID) +
-                   "&NumberofGuests=" + encodeURIComponent(NumberofGuests) +
-                   "&CheckInDate=" + encodeURIComponent(CheckInDate) +
-                   "&CheckOutDate=" + encodeURIComponent(CheckOutDate);
-
-    // Redirect to reservation summary page 
-    window.location.href = "reservationSummary.html?" + formData;
-}
-</script>
-
