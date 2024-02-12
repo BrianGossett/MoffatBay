@@ -10,8 +10,25 @@
     <div id="headerContainer"></div>
     
     <!-- Your landing page content goes here -->
+    <div id="roomDropdown"></div>
+
 
     <div id="footerContainer"></div>
-    <script src="script.js"></script>
+    <script src="script.js"></script>   
+     <script>
+        // Function to fetch the dropdown content and inject it into the HTML
+        function loadDropdown() {
+            fetch('roomdropdown.php')
+                .then(response => response.text())
+                .then(data => {
+                    // Inject the dropdown content into the specified HTML element
+                    document.getElementById('roomDropdown').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Call the function to load the dropdown when the page loads
+        document.addEventListener('DOMContentLoaded', loadDropdown);
+    </script>
 </body>
 </html>
