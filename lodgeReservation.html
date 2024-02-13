@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lodgeres.css">
     <link rel="stylesheet" href="style.css">
-    <title>Moffat Bay Lodge</title>
+
+
+
 </head>
-<body>
+
+<body>     
     <div id="headerContainer"></div>
+        <h1><br>Book Your Reservation</h1><br>
+  
+        <div id="res-container">
+    <div id="text">
+        <img src ="hotel.jpeg" alt="Room image" width="300" >
+        <p><br><b>Room Rates</b><br> 1-2 Guests: $115.00/night <br> 3+ Guests: $150.00/night </p>
+    </div>
+
+    <div id="resForm">
+      <form action="#" method="post">
+
+        <label for="check_in_date">Check-in Date:</label>
+        <input type="date" name="check_in_date" required>
+
+        <label for="check_out_date">Check-out Date:</label>
+        <input type="date" name="check_out_date" required>
+
+        <label for="num_guests">Number of Guests:</label>
+        <input type="number" name="num_guests" min="1" max="20" required>
     
+        <label for="room_size">Room Size:</label>
+        <div id="roomDropdown"></div>
+
+        <input type="submit" value="Book Now">
+
+    </div>    
+    </form>
+
+    </div>
+
+    
+    <footer> 
+        <div id="footerContainer"></div>
+    </footer>
+    <script src="script.js"></script>    
     <!-- Your landing page content goes here -->
-    <div id="roomDropdown"></div>
-
-
-    <div id="footerContainer"></div>
-    <script src="script.js"></script>   
      <script>
         // Function to fetch the dropdown content and inject it into the HTML
         function loadDropdown() {
@@ -30,5 +61,6 @@
         // Call the function to load the dropdown when the page loads
         document.addEventListener('DOMContentLoaded', loadDropdown);
     </script>
+    <title>Reservation Booking</title>
 </body>
 </html>

@@ -9,7 +9,7 @@ $result = $conn->query($query);
 // Check if query was successful
 if ($result) {
     // Start building the dropdown menu
-    $dropdown = '<select id="RoomID">';
+    $dropdown = '<select name="room_size" required id="RoomID">';
 
     // Loop through the retrieved rooms
     while ($row = $result->fetch_assoc()) {

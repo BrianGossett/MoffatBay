@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
 
-    if(loginForm)
-{    loginForm.addEventListener("submit", function (e) {
+    if(loginForm) {    
+        loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const formData = new FormData(loginForm);
@@ -100,6 +100,18 @@ function handleLanding() {
     // Prevent the form from submitting
     return false;
 }
+
+function logout() {
+    // Make an AJAX request to logout the user
+    fetch("logout.php")
+        .then(response => response.text())
+        .then(data => {
+            // Redirect to the home page or any other authorized page
+            window.location.href = "index.html";
+        })
+        .catch(error => console.error("Error:", error));
+}
+
 function checkAndDisplayCustomerId() {
     // Make an AJAX request to check if the user is logged in
     fetch("check_login_status.php")
