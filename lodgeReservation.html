@@ -3,51 +3,63 @@
 <head>
     <link rel="stylesheet" href="lodgeres.css">
     <link rel="stylesheet" href="style.css">
-    <div id="headerContainer"></div>
     <title>Reservation Booking</title>
-
 </head>
+<body>     
 
-<body> 
-        <h1><br>Book Your Reservation</h1><br>
-  
-        <div id="res-container">
-    <div id="text">
-        <img src ="hotel.jpeg" alt="Room image" width="300" >
-        <p><br><b>Room Rates</b><br> 1-2 Guests: $115.00/night <br> 3+ Guests: $150.00/night </p>
-    </div>
+    <div id="headerContainer"></div>
 
-    <div id="resForm">
-      <form action="#" method="post">
+    <h1><br>Book Your Reservation</h1><br>
 
-        <label for="check_in_date">Check-in Date:</label>
-        <input type="date" name="check_in_date" required>
+    <div id="res-container">
+        <div id="text">
+            <img src ="hotel.jpeg" alt="Room image" width="300" >
+            <p><br><b>Room Rates</b><br> 1-2 Guests: $115.00/night <br> 3+ Guests: $150.00/night </p>
+        </div>
 
-        <label for="check_out_date">Check-out Date:</label>
-        <input type="date" name="check_out_date" required>
+        <div id="resForm">
+            <form onsubmit="return submitReservation()">
 
-        <label for="num_guests">Number of Guests:</label>
-        <input type="number" name="num_guests" min="1" max="20" required>
-    
-        <label for="room_size">Room Size:</label>
-        <select name="room_size" required>
-            <option value="double_full_beds">Double Full Beds</option>
-            <option value="queen">Queen</option>
-            <option value="double_queen_beds">Double Queen Beds</option>
-            <option value="king">King</option>
-        </select>
+                <label for="CheckInDate">Check-in Date:</label>
+                <input id="CheckInDate" type="date" name="check_in_date" required>
 
-        <input type="submit" value="Book Now">
+                <label for="CheckOutDate">Check-out Date:</label>
+                <input id="CheckOutDate" type="date" name="check_out_date" required>
 
-    </div>    
-    </form>
+                <label for="NumberofGuests">Number of Guests:</label>
+                <input id="NumberofGuests" type="number" name="num_guests" min="1" max="20" required>
+            
+                <label for="roomDropdown">Room Size:</label>
+                <div id="roomDropdown"></div>
 
+                <input type="submit" value="Book Now">
+
+            </form>
+        </div> 
     </div>
 
     
     <footer> 
         <div id="footerContainer"></div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="script.js"></script>    
+    
+    <script>
+        reservationNotLoggedInRedirect()
+        // Function to fetch the dropdown content and inject it into the HTML
+        function loadDropdown() {
+            fetch('roomdropdown.php')
+                .then(response => response.text())
+                .then(data => {
+                    // Inject the dropdown content into the specified HTML element
+                    document.getElementById('roomDropdown').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Call the function to load the dropdown when the page loads
+        document.addEventListener('DOMContentLoaded', loadDropdown);
+    </script>
 </body>
 </html>
