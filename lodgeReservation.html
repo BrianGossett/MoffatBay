@@ -19,16 +19,16 @@
     </div>
 
     <div id="resForm">
-      <form action="#" method="post">
+      <form onsubmit="return submitReservation()">
 
         <label for="check_in_date">Check-in Date:</label>
-        <input type="date" name="check_in_date" required>
+        <input id="CheckInDate" type="date" name="check_in_date" required>
 
         <label for="check_out_date">Check-out Date:</label>
-        <input type="date" name="check_out_date" required>
+        <input id="CheckOutDate" type="date" name="check_out_date" required>
 
         <label for="num_guests">Number of Guests:</label>
-        <input type="number" name="num_guests" min="1" max="20" required>
+        <input id="NumberofGuests" type="number" name="num_guests" min="1" max="20" required>
     
         <label for="room_size">Room Size:</label>
         <div id="roomDropdown"></div>
@@ -47,6 +47,7 @@
     <script src="script.js"></script>    
     <!-- Your landing page content goes here -->
      <script>
+        reservationNotLoggedInRedirect()
         // Function to fetch the dropdown content and inject it into the HTML
         function loadDropdown() {
             fetch('roomdropdown.php')
