@@ -85,6 +85,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const checkInDate = urlParams.get("checkInDate");
+    const checkOutDate = urlParams.get("checkOutDate");
+    const numberOfGuests = urlParams.get("numberOfGuests");
+
+
+    // Set the values in the reservation form if the elements exist
+    const checkInDateInput = document.getElementById("CheckInDate");
+    const checkOutDateInput = document.getElementById("CheckOutDate");
+    const numberOfGuestsInput = document.getElementById("NumberofGuests");
+
+
+    if (checkInDateInput && checkOutDateInput && numberOfGuestsInput) {
+        checkInDateInput.value = checkInDate;
+        checkOutDateInput.value = checkOutDate;
+        numberOfGuestsInput.value = numberOfGuests;
+    }
+});
+
 
 function handleLanding() {
     // Your existing landing page logic here...
