@@ -184,7 +184,6 @@ function submitReservation() {
                    "&CheckInDate=" + encodeURIComponent(CheckInDate) +
                    "&CheckOutDate=" + encodeURIComponent(CheckOutDate);
 
-    console.log(formData);
     // Redirect to reservation summary page 
     window.location.href = "reservationSummary.html?" + formData;
 
