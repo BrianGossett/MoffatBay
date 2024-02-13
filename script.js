@@ -165,7 +165,10 @@ function submitReservation() {
 
     console.log(formData);
     // Redirect to reservation summary page 
-    // window.location.href = "reservationSummary.html?" + formData;
+    window.location.href = "reservationSummary.html?" + formData;
+
+    // Prevent the form from submitting
+    return false;
 }
 
 function reservationNotLoggedInRedirect() {
@@ -182,5 +185,4 @@ function reservationNotLoggedInRedirect() {
             }
         })
         .catch(error => console.error("Error:", error));
-
 }
