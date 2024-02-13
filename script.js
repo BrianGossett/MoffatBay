@@ -90,20 +90,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const checkInDate = urlParams.get("checkInDate");
     const checkOutDate = urlParams.get("checkOutDate");
-    const numberOfGuests = urlParams.get("numberOfGuests");
+    const numberOfGuests = urlParams.get("NumberOfGuests");
+    const RoomID = urlParams.get("RoomID");
 
 
     // Set the values in the reservation form if the elements exist
     const checkInDateInput = document.getElementById("CheckInDate");
     const checkOutDateInput = document.getElementById("CheckOutDate");
-    const numberOfGuestsInput = document.getElementById("NumberofGuests");
+    const numberOfGuestsInput = document.getElementById("NumberOfGuests");
+    const RoomIDInput = document.getElementById("RoomID");
 
 
-    if (checkInDateInput && checkOutDateInput && numberOfGuestsInput) {
+    if (checkInDateInput) {
         checkInDateInput.value = checkInDate;
+    }
+
+    if (checkOutDateInput ) {
         checkOutDateInput.value = checkOutDate;
+    }
+
+    if (numberOfGuestsInput) {
         numberOfGuestsInput.value = numberOfGuests;
     }
+
+    if (RoomIDInput) {
+        RoomIDInput.value = RoomID;
+    }
+    
 });
 
 
@@ -116,7 +129,7 @@ function handleLanding() {
     const numberOfGuests = document.getElementById("guests").value;
 
     // Redirect to lodgeReservation.html with query parameters
-    window.location.href = `lodgeReservation.html?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&numberOfGuests=${numberOfGuests}`;
+    window.location.href = `lodgeReservation.html?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&NumberOfGuests=${numberOfGuests}`;
 
     // Prevent the form from submitting
     return false;
@@ -174,13 +187,13 @@ function loginPageRedirect() {
 // Get reservation details and redirect to summary page
 function submitReservation() {
     var RoomID = document.getElementById("RoomID").value;
-    var NumberofGuests = document.getElementById("NumberofGuests").value;
+    var NumberofGuests = document.getElementById("NumberOfGuests").value;
     var CheckInDate = document.getElementById("CheckInDate").value;
     var CheckOutDate = document.getElementById("CheckOutDate").value;
 
     // Construct the URL parameters
     var formData = "RoomID=" + encodeURIComponent(RoomID) +
-                   "&NumberofGuests=" + encodeURIComponent(NumberofGuests) +
+                   "&NumberOfGuests=" + encodeURIComponent(NumberofGuests) +
                    "&CheckInDate=" + encodeURIComponent(CheckInDate) +
                    "&CheckOutDate=" + encodeURIComponent(CheckOutDate);
 
