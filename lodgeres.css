@@ -13,28 +13,41 @@ header {
   align-items: center;
 }
 
-.text {
-  flex: 2;
-  padding: 20px;
-}
-
-
-.res-container {
-  flex: 1;
+body {
   align-items: center;
   justify-content: center;
-  min-height: 90vh;
-  background-color: #ffffff;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
 }
 
-#resForm {
- 
-  max-width: 600px;
-  margin: 50px auto;
-  background-color: #fff;
+
+#res-container {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 600px; /* Added margin */
+  margin-right: 600px;
+  
+}
+
+#text {
+  flex: 1;
+  padding: 20px;
+}
+#resForm {
+    flex: 1;
+    max-width: 400px;
+}
+
+form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -48,10 +61,11 @@ label {
 
 input,
 select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
+    width: 100%; /* Adjust the width as needed */
+    padding: 10px;
+    margin-bottom: 16px;
+    margin-right: 20px;
+    box-sizing: border-box;
 }
 
 input[type="date"] {

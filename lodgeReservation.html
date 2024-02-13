@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="lodgeres.css">
     <link rel="stylesheet" href="style.css">
     <div id="headerContainer"></div>
-    <header>
+    <title>Reservation Booking</title>
+<header>
         <h1>Moffat Bay Lodge </h1>
         <img src="palm_tree_icon.png" alt="PalmIcon" width="40" height="40" />
         <div class="menu-icon" id="menuIcon">&#9776;</div>
@@ -22,15 +23,21 @@
             <a href="reservationSummary.html">Reservation Summary</a>
             <a href="reservationLookUp.html">Reservation Lookup</a>
         </nav>
-    </header>
+</header>
 </head>
 
-<body>
-    <div id ="res.container ">
-       
-    <form id="resForm">
-        <h1>Book Your Reservation</h1>
-        
+<body> 
+        <h1><br>Book Your Reservation</h1><br>
+  
+        <div id="res-container">
+    <div id="text">
+        <img src ="hotel.jpeg" alt="Room image" width="300" >
+        <p><br><b>Room Rates</b><br> 1-2 Guests: $115.00/night <br> 3+ Guests: $150.00/night </p>
+    </div>
+
+    <div id="resForm">
+      <form action="#" method="post">
+
         <label for="check_in_date">Check-in Date:</label>
         <input type="date" name="check_in_date" required>
 
@@ -49,11 +56,10 @@
         </select>
 
         <input type="submit" value="Book Now">
-        <div id="text">
-            <p><b>Room Rates</b><br> 1-2 Guests: $115.00/night <br> 3+ Guests: $150.00/night </p>
-        </div>
-        
+
+    </div>    
     </form>
+
     </div>
 
     
