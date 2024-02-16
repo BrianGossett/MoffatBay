@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $remember = isset($_POST['remember']);
 
-    $query = "SELECT CustomerID, EmailAddress, Password FROM customer WHERE EmailAddress = ?";
+    $query = "SELECT CustomerID, EmailAddress, FirstName, LastName, Password FROM customer WHERE EmailAddress = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $emailAddress);
     $stmt->execute();
@@ -21,13 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Set session variables
             session_start();
             $_SESSION['customer_id'] = $row['CustomerID'];
+            $_SESSION['first_name'] = $row['FirstName'];
+            $_SESSION['last_name'] = $row['LastName'];
 
             // Generate a unique token for remember me
             if ($remember) {
                 $rememberToken = bin2hex(random_bytes(32));
                 $updateQuery = "UPDATE customer SET remember_token = ? WHERE CustomerID = ?";
                 $updateStmt = $conn->prepare($updateQuery);
-                $updateStmt->bind_param("si", $rememberToken, $row['CustomerID']);
+                $updateStmt->bind_param("si", $rememberToken, $row['CustomerID'], $row['firstName'], $row['lastName']);
                 $updateStmt->execute();
 
                 // Set a cookie with the remember token

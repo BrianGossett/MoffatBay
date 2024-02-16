@@ -88,8 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Get the query parameters from the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const checkInDate = urlParams.get("checkInDate");
-    const checkOutDate = urlParams.get("checkOutDate");
+    const checkInDate = urlParams.get("CheckInDate");
+    const checkOutDate = urlParams.get("CheckOutDate");
     const numberOfGuests = urlParams.get("NumberOfGuests");
     const RoomID = urlParams.get("RoomID");
 
@@ -99,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkOutDateInput = document.getElementById("CheckOutDate");
     const numberOfGuestsInput = document.getElementById("NumberOfGuests");
     const RoomIDInput = document.getElementById("RoomID");
+    const RoomSizeInput = document.getElementById("RoomSize");
+    const customerIdInput = document.getElementById("CustomerId");
+    const customerNameInput = document.getElementById("CustomerName");
 
 
     if (checkInDateInput) {
@@ -114,7 +117,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (RoomIDInput) {
+        getRoomSize(RoomID).then(roomSize => {            
+            RoomSizeInput.value  = roomSize;
+        });
         RoomIDInput.value = RoomID;
+    }
+
+    if (customerIdInput) {
+       
+        // Make an AJAX request to check if the user is logged in
+        fetch("check_login_status.php")
+            .then(response => response.text())
+            .then(data => {
+                // Execute the script containing customer_id
+                eval(data);
+                // Use the customer_id JavaScript variable
+                if (customer_id !== null) {
+                    customerNameInput.value = first_name + " " + last_name;
+                    customerIdInput.value = customer_id;
+                } else {
+                    // The user is not logged in
+                    console.log("Not logged in");
+                }
+            })
+            .catch(error => console.error("Error:", error));
     }
     
 });
@@ -218,4 +244,62 @@ function reservationNotLoggedInRedirect() {
             }
         })
         .catch(error => console.error("Error:", error));
+}
+
+async function getRoomSize(roomID) {
+    // Construct the URL for the PHP script
+    const url = `get_room_size.php?roomID=${roomID}`;
+
+    // Make a fetch request to the PHP script
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Parse the JSON response
+            return response.json();
+        })
+        .then(data => {
+            // Extract and return the room size from the JSON response
+            return data.roomSize;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Return an error message or handle the error as needed
+            return 'Error: Failed to retrieve room size';
+        });
+}
+
+function submitReservationSummary() {
+    // Retrieve reservation details from the form
+    var customerId = document.getElementById("CustomerId").value;
+    var roomId = document.getElementById("RoomID").value;
+    var numberOfGuests = document.getElementById("NumberOfGuests").value;
+    var checkInDate = document.getElementById("CheckInDate").value;
+    var checkOutDate = document.getElementById("CheckOutDate").value;
+
+    // Construct the data object to send to the PHP file
+    var reservationData = {
+        customerId: customerId,
+        roomId: roomId,
+        numberOfGuests: numberOfGuests,
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate
+    };
+
+    // Send reservation data to the PHP file using AJAX
+    fetch('create_reservation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reservationData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Handle the response from the PHP file
+        console.log(data); // Log the response for debugging
+        // Optionally, display a success message or redirect to another page
+    })
+    .catch(error => console.error('Error:', error));
 }
