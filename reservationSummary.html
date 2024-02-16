@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Moffat Bay Lodge</title>
+    <link rel="stylesheet" href="resStyle.css">
+    <title>Moffat Bay Lodge/Reservation Summary</title>
 </head>
 <body>
     <div id="headerContainer"></div>
     
-    <!-- Your landing page content goes here -->
+    <div id="reservation-container">
+
+    <form id="reseravtionSummary">
+        <h1>Here are the details of your reservation:</h1>
+        <p><strong>Name:</strong><span id="name"></span></p>
+        <p><strong>Email:</strong><span id="email"></span></p>
+        <p><strong>Phone:</strong><span id="phone"></span></p>
+        <p><strong>Check In:</strong><span id="checkIn"></span></p>
+        <p><strong>Check Out:</strong><span id="checkOut"></span></p>
+        <p><strong>Room:</strong><span id="room"></span></p>
+        <p><strong>Guests:</strong><span id="guest"></span></p>
+        <p><strong>Cost:</strong><span id="cost"></span></p>
+
+        <div class="button-container">
+        <button type="submit">Submit</button>
+        <button onclick="goBack()">Back</button>
+        <div id="cancel">
+        <button type="button" onclick="cancelReservation()">Cancel</button>
+        </div>
+        </div>
+    </form>
+    </div>
 
 
     <div id="footerContainer"></div>
