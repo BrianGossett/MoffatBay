@@ -99,28 +99,49 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkOutDateInput = document.getElementById("CheckOutDate");
     const numberOfGuestsInput = document.getElementById("NumberOfGuests");
     const RoomIDInput = document.getElementById("RoomID");
-    const RoomSizeInput = document.getElementById("RoomSize");
     const customerIdInput = document.getElementById("CustomerId");
-    const customerNameInput = document.getElementById("CustomerName");
+
+
+    // Set the values in the reservation summary if the elements exist
+    const nameLabel = document.getElementById("name");
+    const emailLabel = document.getElementById("email");
+    const phoneLabel = document.getElementById("phone");
+    const checkInLabel = document.getElementById("checkIn");
+    const checkOutLabel = document.getElementById("checkOut");
+    const roomLabel = document.getElementById("room");
+    const guestsLabel = document.getElementById("guest");
+    const costLabel = document.getElementById("cost");
 
 
     if (checkInDateInput) {
         checkInDateInput.value = checkInDate;
+        if (checkInLabel) {
+            checkInLabel.innerText = checkInDate;
+        }
     }
 
     if (checkOutDateInput ) {
         checkOutDateInput.value = checkOutDate;
+        if (checkOutLabel) {
+            checkOutLabel.innerText = checkOutDate;
+        }
     }
 
     if (numberOfGuestsInput) {
         numberOfGuestsInput.value = numberOfGuests;
+        if (guestsLabel) {
+            guestsLabel.innerText = numberOfGuests;
+        }
     }
 
     if (RoomIDInput) {
-        getRoomSize(RoomID).then(roomSize => {            
-            RoomSizeInput.value  = roomSize;
-        });
+        if (roomLabel) {
+            getRoomSize(RoomID).then(roomSize => {            
+                roomLabel.innerText = roomSize;
+            });
+        }
         RoomIDInput.value = RoomID;
+
     }
 
     if (customerIdInput) {
@@ -133,7 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 eval(data);
                 // Use the customer_id JavaScript variable
                 if (customer_id !== null) {
-                    customerNameInput.value = first_name + " " + last_name;
+                    nameLabel.innerText = first_name + " " + last_name;
+                    emailLabel.innerText = email_address;
+                    phoneLabel.innerText = telephone;
                     customerIdInput.value = customer_id;
                 } else {
                     // The user is not logged in
@@ -141,6 +164,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
             .catch(error => console.error("Error:", error));
+    }
+
+    if (costLabel) {
+        // number 1-2 guest is 115 per night and 3-5 guest for 150 per night
+        var cost = 0;
+        if (numberOfGuests <= 2) {
+            cost = 115;
+        } else {
+            cost = 150;
+        }
+
+        // number of days
+        var date1 = new Date(checkInDate);
+        var date2 = new Date(checkOutDate);
+
+        // calculate the difference in days between the two dates whole number based on 
+        var Difference_In_Time =
+            date2.getTime() - date1.getTime();
+ 
+        // Calculating the no. of days between
+        // two dates
+        var Difference_In_Days =
+            Math.abs(Math.round(Difference_In_Time / (1000 * 3600 * 24)));
+        
+        cost = cost * Difference_In_Days;
+
+        costLabel.innerText = cost;
     }
     
 });
@@ -286,20 +336,37 @@ function submitReservationSummary() {
         checkInDate: checkInDate,
         checkOutDate: checkOutDate
     };
+        
+    // clear params and go to index.html after confirming in alert
+    var r = confirm("Are you sure you want to accept the reservation?");
+    if (r == true) {
+        // Send reservation data to the PHP file using AJAX
+        fetch('create_reservation.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(reservationData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Handle the response from the PHP file
+            console.log(data); // Log the response for debugging
+            // Optionally, display a success message or redirect to another page
+            window.location.href = "reservationLookUp.html";
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
 
-    // Send reservation data to the PHP file using AJAX
-    fetch('create_reservation.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(reservationData)
-    })
-    .then(response => response.text())
-    .then(data => {
-        // Handle the response from the PHP file
-        console.log(data); // Log the response for debugging
-        // Optionally, display a success message or redirect to another page
-    })
-    .catch(error => console.error('Error:', error));
+function goBack() {
+    window.history.back();
+}
+
+function cancelReservation() {
+    // clear params and go to index.html after confirming in alert
+    var r = confirm("Are you sure you want to cancel the reservation?");
+    if (r == true) {
+        window.location.href = "index.html";
+    }
 }
