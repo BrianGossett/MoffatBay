@@ -1,0 +1,55 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #222; 
+    text-align: center; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #fff;
+    text-align: left; 
+}
+
+h1 {
+    font-size: 35px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #222; 
+}
+
+#welcomeImage {
+    width: 400px; 
+    height: 250px;
+} 
+
+#missionImage {
+    width: 400px; 
+    height: 250px;
+} 
+
+#locationImage {
+    width: 400px; 
+    height: 250px;
+}
+
+#activitiesImage {
+    width: 400px; 
+    height: 250px; 
+}
+
+#accommodationsImage {
+    width: 400px; 
+    height: 250px;
+}
