@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+#reservation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    margin: 50px 0;
+    background-color: #ffffff;
+}
+
+#reseravtionSummary { 
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    padding: 5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    color: white;
+    background-color: rgb(0, 106, 255);
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#cancel button {
+    background-color: red;
+}
