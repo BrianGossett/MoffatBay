@@ -1,0 +1,59 @@
+<!-- HTML code for the test -->
+<div>
+    <label for="customerId">Customer ID:</label>
+    <input type="text" id="customerId" value="123">
+</div>
+<div>
+    <label for="roomId">Room ID:</label>
+    <input type="text" id="roomId" value="456">
+</div>
+<div>
+    <label for="numberOfGuests">Number of Guests:</label>
+    <input type="text" id="numberOfGuests" value="2">
+</div>
+<div>
+    <label for="checkInDate">Check-in Date:</label>
+    <input type="text" id="checkInDate" value="2022-01-01">
+</div>
+<div>
+    <label for="checkOutDate">Check-out Date:</label>
+    <input type="text" id="checkOutDate" value="2022-01-03">
+</div>
+<button onclick="submitReservationSummary()">Submit</button>
+
+<!-- JavaScript code for the test -->
+<script>
+    function submitReservationSummary() {
+        // Retrieve reservation details from the form
+        var customerId = document.getElementById("customerId").value;
+        var roomId = document.getElementById("roomId").value;
+        var numberOfGuests = document.getElementById("numberOfGuests").value;
+        var checkInDate = document.getElementById("checkInDate").value;
+        var checkOutDate = document.getElementById("checkOutDate").value;
+
+        // Construct the data object to send to the PHP file
+        var reservationData = {
+            customerId: customerId,
+            roomId: roomId,
+            numberOfGuests: numberOfGuests,
+            checkInDate: checkInDate,
+            checkOutDate: checkOutDate
+        };
+
+        // Send reservation data to the PHP file using AJAX
+        fetch('create_reservation.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(reservationData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Handle the response from the PHP file
+            console.log(data); // Log the response for debugging
+            // Optionally, display a success message or redirect to another page
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
