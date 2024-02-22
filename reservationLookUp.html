@@ -11,7 +11,15 @@
     
     <!-- Your landing page content goes here -->
 
+    <h1>Reservation Search</h1>
+    <form id="searchForm">
+        <label for="searchTerm">Search by Customer Email or Reservation ID:</label>
+        <input type="text" id="searchTerm" name="searchTerm" required>
+        <button type="submit">Search</button>
+    </form>
 
+    <div id="searchResults"></div>
+    
     <div id="footerContainer"></div>
     <script src="script.js"></script>
 </body>
