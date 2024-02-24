@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+#contactUs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    margin: 50px 0;
+    background-color: #ffffff;
+}
+
+#contactUs { 
+    background-color: #f0f0f0;
+    border-radius: 10px; 
+    padding: 4em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+#contactUs h3 {
+    text-decoration: underline;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#contactUs p {
+    display: inline;
+    margin: 0;
+}
