@@ -195,12 +195,23 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
-document.getElementById("searchForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
+document.addEventListener("DOMContentLoaded", function () {
+    const searchForm = document.getElementById("searchForm");
+    if (searchForm) {
+        searchForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+            // Get the search term from the form input
+            const searchTerm = document.getElementById("searchTerm").value;
+            searchReservation(searchTerm);
+        });
+    }
+    
+    if(searchForm) {
+        searchReservation('');
+    }
 
-    // Get the search term from the form input
-    const searchTerm = document.getElementById("searchTerm").value;
-
+});
+function searchReservation(searchTerm) {
     // Make a fetch request to the PHP script to search for the reservation
     fetch(`search_reservation.php?searchTerm=${searchTerm}`)
         .then(response => {
@@ -218,8 +229,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
             // Display an error message to the user
             document.getElementById("searchResults").innerHTML = `<p>Error: Failed to retrieve reservation information.</p>`;
         });
-});
-
+}
 // Function to display the search results
 function displaySearchResults(data) {
     const searchResultsDiv = document.getElementById("searchResults");
