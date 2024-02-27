@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lookup.css">
     <title>Moffat Bay Lodge</title>
 </head>
 <body>
     <div id="headerContainer"></div>
+    <br>
+    <h1>Reservation Search</h1>
+    <div id="search">
     
-    <!-- Your landing page content goes here -->
-
-
+    <form id="searchForm"  >
+        <label for="searchTerm">Search by Customer Email or Reservation ID: </label>
+        <input type="text" id="searchTerm" name="searchTerm" required>
+        <button type="submit">Search</button>
+    </form>
+    </div>
+    <br>
+    <h2>Reservation Details:</h2>
+    <div id="lookupResults">
+    <div id="searchResults"></div>
+    </div>
+    
     <div id="footerContainer"></div>
     <script src="script.js"></script>
 </body>

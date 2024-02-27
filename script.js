@@ -195,6 +195,90 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const searchForm = document.getElementById("searchForm");
+    if (searchForm) {
+        searchForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+            // Get the search term from the form input
+            const searchTerm = document.getElementById("searchTerm").value;
+            searchReservation(searchTerm);
+        });
+    }
+    
+    if(searchForm) {
+        searchReservation('');
+    }
+
+});
+function searchReservation(searchTerm) {
+    // Make a fetch request to the PHP script to search for the reservation
+    fetch(`search_reservation.php?searchTerm=${searchTerm}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            // Call a function to display the search results
+            displaySearchResults(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Display an error message to the user
+            document.getElementById("searchResults").innerHTML = `<p>Error: Failed to retrieve reservation information.</p>`;
+        });
+}
+// Function to display the search results
+function displaySearchResults(data) {
+    const searchResultsDiv = document.getElementById("searchResults");
+
+    // Clear any previous search results
+    searchResultsDiv.innerHTML = "";
+
+    // Check if there are any search results
+    if (data.length > 0) {
+        // Create a table to display the search results
+        const table = document.createElement("table");
+        table.innerHTML = `
+            <tr>
+                <th>Reservation ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Telephone</th>
+                <th>Number of Guests</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <th>Room Size</th>
+            </tr>
+        `;
+
+        // Add each reservation as a row in the table
+        data.forEach(reservation => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${reservation.ReservationID}</td>
+                <td>${reservation.FirstName}</td>
+                <td>${reservation.LastName}</td>
+                <td>${reservation.EmailAddress}</td>
+                <td>${reservation.Telephone}</td>
+                <td>${reservation.NumberofGuests}</td>
+                <td>${reservation.CheckInDate}</td>
+                <td>${reservation.CheckOutDate}</td>
+                <td>${reservation.RoomSize}</td>
+            `;
+            table.appendChild(row);
+        });
+
+        // Append the table to the search results div
+        searchResultsDiv.appendChild(table);
+    } else {
+        // If no search results were found, display a message to the user
+        searchResultsDiv.innerHTML = `<p>No reservation found for the provided search term.</p>`;
+    }
+}
 
 function handleLanding() {
     // Your existing landing page logic here...
