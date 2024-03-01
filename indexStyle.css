@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Berkshire Swash';
+    src: url('BerkshireSwash-Regular.woff') format('woff'); 
+    font-weight: normal;
+    font-style: normal;
+ }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,19 +24,62 @@ body.landing-page {
 body.landing-page .menu-icon {
     display: block;
 }
-
 header {
-    color: #3F3E40;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: white;
     padding: 1em;
-    position: absolute;
+    text-align: center;
+    font-family: 'Berkshire Swash', cursive;
+    position: relative;
+    padding: 2em;
+    padding-left: 100px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    top: 0;
-    width: 100%;
-    font-size: 20px;
+}
+.menu-icon {
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    padding: 10px;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.account-icon {
+    position: absolute;
+    top: 3em;
+    right: 100px; 
 }
 
+footer.site-footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0.5;
+    color: white;
+    padding: 2em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-links a {
+    font-family: 'Berkshire Swash', cursive;
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.copyright {
+    font-size: 0.8em;
+    color: #fff;
+    margin-top: 10px;
+    font-family: 'Berkshire Swash', cursive;
+}
 #logo {
     display:flex;
     align-items: center;
@@ -81,25 +131,6 @@ nav a {
     text-decoration: none;
 }
 
-footer.site-footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1em;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
 
 
 h1 {
@@ -107,19 +138,6 @@ h1 {
     text-align: center; 
 }
 
-.menu-icon {
-    font-size: 2em;
-    cursor: pointer;
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-right: 20px;
-}
 
 .nav-links {
     display: none;
@@ -152,7 +170,7 @@ h1 {
     background-color: rgba(52, 63, 65, 0.6);
     margin-top: 10%;
     padding: 90px;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
     margin-left: 10%;
     margin-right: 10%;
 }
