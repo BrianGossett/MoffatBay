@@ -15,9 +15,10 @@ body.landing-page {
     margin: 0;
     padding: 0;
     background-image: url('landingpagebackground.jpg');
-    background-size:100%;
-    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: left top;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
 }
 
