@@ -4,25 +4,6 @@ body {
     padding: 0;
 }
 
-header {
-    background-image: url('landingpagebackground.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 2em;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: 0;
-    width: 100%;
-}
-
-header h1 {
-    text-align: center;
-    padding-left: 40%
-}
-
 .footer-links a {
     color: white;
     margin: 0 10px;
