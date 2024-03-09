@@ -205,12 +205,8 @@ document.addEventListener("DOMContentLoaded", function () {
             searchReservation(searchTerm);
         });
     }
-    
-    if(searchForm) {
-        searchReservation('');
-    }
-
 });
+
 function searchReservation(searchTerm) {
     // Make a fetch request to the PHP script to search for the reservation
     fetch(`search_reservation.php?searchTerm=${searchTerm}`)
@@ -230,6 +226,7 @@ function searchReservation(searchTerm) {
             document.getElementById("searchResults").innerHTML = `<p>Error: Failed to retrieve reservation information.</p>`;
         });
 }
+
 // Function to display the search results
 function displaySearchResults(data) {
     const searchResultsDiv = document.getElementById("searchResults");
