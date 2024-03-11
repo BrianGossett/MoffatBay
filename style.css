@@ -172,7 +172,7 @@ h1 {
 }
 
 #loginForm button {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     background-color: #007bff; /* Set a blue color for the button */
     color: #fff;
